@@ -1,0 +1,5 @@
+{
+    "python.linting.enabled": true,
+    "python.pythonPath": "C:\\Users\\Raka\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.linting.pylintEnabled": true
+}
