@@ -1,0 +1,47 @@
+[
+    {
+        "_id": "5c5bd2426eceff0ba0bb2d50",
+        "nama": "Batik Jogja",
+        "harga": 1000000
+    },
+    {
+        "_id": "5c5bd3a36eceff26c87854f9",
+        "nama": "Batik Jogja",
+        "harga": 1000000
+    },
+    {
+        "_id": "5c5bd8446eceff0634593f41",
+        "nama": "Lemari Es",
+        "harga": 2000000
+    },
+    {
+        "_id": "5c5bd8596eceff0c9042823c",
+        "nama": "Celana",
+        "harga": 500000
+    },
+    {
+        "_id": "5c5bd9e56eceff3824dc0f41",
+        "nama": "baju",
+        "harga": 700000
+    },
+    {
+        "_id": "5c5bdaac6eceff07c05a4fd9",
+        "nama": "bakso",
+        "harga": 2300000
+    },
+    {
+        "_id": "5c5bdd506eceff2ee0c560f8",
+        "nama": "boneka",
+        "harga": 250000
+    },
+    {
+        "_id": "5c5bdd5f6eceff342862c53e",
+        "nama": "drone",
+        "harga": 2000000
+    },
+    {
+        "_id": "5c5bdd6c6eceff2e5c038481",
+        "nama": "batik",
+        "harga": 550000
+    }
+]

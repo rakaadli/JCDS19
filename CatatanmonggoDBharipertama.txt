@@ -1,0 +1,80 @@
+cd C:\Program Files\MongoDB\Server\4.0\bin
+set-location "C:\Program Files\MongoDB\Server\4.0\bin"
+
+./mongo
+
+show dbs
+
+db.createUser({
+... user:'Raka',
+... pwd:'1234',
+... roles:['readWrite','dbAdmin']
+... })
+
+db.getUsers()
+
+db.createCollection('datascience_mongo')
+
+db.datascience_mongo.insert({nama: 'Andi'})
+
+db.datascience_mongo.find()
+
+db.datascience_mongo.insert({nama: 'Budi', Usia: 21, Kota: 'Jakarta',job: 'PNS', status: 'Belum Menikah'})
+
+db.datascience_mongo.find().pretty()
+
+db.datascience_mongo.insert({_id: 22,nama: 'Caca', Usia: 21, Kota: 'Jakarta',job: 'PNS', status: 'Belum Menikah'})
+
+db.datascience_mongo.insert([
+... {nama: 'Deni'},
+... {nama: 'Euis', usia: 29, kota: 'Depok'},
+... {nama: 'Fani', job: 'Marketing'}])
+
+
+
+db.datascience_mongo.update(
+... {nama: 'Andi'},
+... {nama: 'Andy'})
+
+db.datascience_mongo.update( {nama: 'Budi'}, {nama: 'Budy'})
+
+db.datascience_mongo.update( {nama: 'Budy'}, {nama: 'Budi', usia: 21})
+
+db.datascience_mongo.update( {nama: 'Budy'}, {$set: {usia: 52}})
+
+db.datascience_mongo.update({nama:'Andy'}, {$set: {usia: 22, job: 'PNS', kota: 'Surabaya'}})
+
+db.datascience_mongo.update({},{$set: {titel: 'Sarjana'}})
+
+db.datascience_mongo.updateMany({},{$set: {titel: 'Sarjana'}})
+
+db.datascience_mongo.remove({nama:'Fani'})
+
+db.datascience_mongo.update({nama: 'Andy'},{$unset:{titel:1}})
+db.datascience_mongo.update({nama: 'Andy'},{$unset:{titel:true}})
+
+db.datascience_mongo.updateMany({},{$rename: {"usia": "umur"}})
+
+db.datascience_mongo.find({$and: [{Usia:21}, {job: 'PNS'}]})
+
+db.datascience_mongo.find({$or: [{umur:52}, {umur: 22}]})
+
+db.datascience_mongo.find({ $and: [{umur: {$gt: 28}}, {umur: {$lt: 53}}]})
+
+db.datascience_mongo.find().limit(2) #ngebaca2
+
+db.datascience_mongo.find().skip(2) #ngeskip2
+
+db.datascience_mongo.find().count()
+
+db.datascience_mongo.find({umur: 29}).count()
+
+db.datascience_mongo.find({$and:[{umur:{$gt:23}}, {umur:{lt:52}}]}).count()
+
+db.datascience_mongo.aggregate({})//Belum bisa
+
+db.createCollection('tes')
+
+db.tes.drop()
+
+show collections

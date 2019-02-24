@@ -1,0 +1,44 @@
+[
+    {
+        "id_orang": 1,
+        "nama_orang": "Andi",
+        "nama_kota": "Jakarta",
+        "id_kota": 1
+    },
+    {
+        "id_orang": 2,
+        "nama_orang": "Budi",
+        "nama_kota": "Yogyakarta",
+        "id_kota": 2
+    },
+    {
+        "id_orang": 3,
+        "nama_orang": "Caca",
+        "nama_kota": "Jakarta",
+        "id_kota": 1
+    },
+    {
+        "id_orang": 4,
+        "nama_orang": "Deni",
+        "nama_kota": "Yogyakarta",
+        "id_kota": 2
+    },
+    {
+        "id_orang": 5,
+        "nama_orang": "Euis",
+        "nama_kota": "Bandung",
+        "id_kota": 3
+    },
+    {
+        "id_orang": 7,
+        "nama_orang": "Joko",
+        "nama_kota": "Kudus",
+        "id_kota": 6
+    },
+    {
+        "id_orang": 8,
+        "nama_orang": "Hadi",
+        "nama_kota": "Sorong",
+        "id_kota": 5
+    }
+]

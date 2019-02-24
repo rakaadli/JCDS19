@@ -1,0 +1,3 @@
+db.produk.find({_id: ObjectId('5c5bd4596eceff26c4300a67')})
+
+db.produk.find({_id: ObjectId('5c5bd4596eceff26c4300a67')})

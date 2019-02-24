@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "5c6faa9f67c27c1022320894",
+        "nama": "kaos",
+        "harga": 10000
+    },
+    {
+        "_id": "5c6faa9f67c27c1022320895",
+        "nama": "jaket",
+        "harga": 20000
+    },
+    {
+        "_id": "5c6faa9f67c27c1022320896",
+        "nama": "celana",
+        "harga": 30000
+    }
+]

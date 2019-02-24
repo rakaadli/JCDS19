@@ -1,0 +1,84 @@
+Show databases;
+
+create database datascience;
+
+use namadatabase
+
+show tables;
+
+drop database namadatabase;
+
+
+use namatabase
+create table ujicoba(
+no int noy null
+nama varchar(50) not null);
+
+describe ujicoba;
+
+select no, nama from ujicoba;
+
+.\mysql.exe -u raka -p 12345
+
+select * from ujicoba
+
+insert into ujicoba values (1,'Budi');
+
+select * from users where id > 2;
+
+select * from users where id = 3;
+
+select * from users;
+
+create table users(
+    -> id int not null auto_increment,
+    -> nama varchar(50) default 'Tanpa Nama',
+    -> email varchar(50) not null unique,
+    -> gender enum('Pria','Wanita'),
+    -> bod date,
+    -> created_at timestamp default current_timestamp,
+    -> updated_at timestamp default current_timestamp on update current_timestamp,
+    -> primary key (id)
+    -> );
+
+delete from users;
+
+delete from users
+    -> where nama = 'Natasha';
+
+ alter tables users
+    -> add column
+    -> kota varchar(50) default 'Jakarta'
+    -> after bod;
+
+alter table users
+    -> rename column
+    -> kota to city;
+
+alter table users
+    -> modify column
+    -> city varchar(55) default 'Surabaya'
+    -> after email;
+
+alter table users
+    -> drop column bod;
+
+ select id, nama, email, 55 - id as pensiun from users;
+
+ select nama as name, email as surel, city as kota, gender from users;
+
+ update users set
+    -> usia = 42
+    -> where city = 'Jakarta';
+
+select * from users limit 1;
+select * from users limit 2,3; # dari apa, sebanyak apa
+
+select nama, usia from users
+    -> order by usia;
+
+select nama, usia from users
+    -> order by usia desc; #descending
+
+select nama, usia from users
+    -> order by id, usia; # id dulu baru diliat usia

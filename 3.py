@@ -115,11 +115,11 @@
 # del bulan[2]
 # print(bulan)
 
-# student = ['Andi','Budi','Caca']
+student = ['Andi','Budi','Caca']
 
-# isilah = input('Ketikan nama anda:')
-# student.append(isilah)
-# print(str(student))
+isilah = input('Ketikan nama anda:')
+student.append(isilah)
+print(str(student))
 
 #ifstatement
 

@@ -82,10 +82,51 @@ import requests
 #         else:
 #             print('total diterima : ' + str(TotaljualIDR) + 'USD')
 
-appid = 'e48a7eddac52ba45d036c66ae136f14c'
-url = 'http://api.openweathermap.org/data/2.5/weather?q='
-cari = 'Jakarta' 
+# appid = 'e48a7eddac52ba45d036c66ae136f14c'
+# url = 'http://api.openweathermap.org/data/2.5/weather?q='
+# cari = 'Jakarta' 
 
-data = requests.get(url+cari+'&APPID=' +appid)
+# data = requests.get(url+cari+'&APPID=' +appid)
 
-print(data.json()['weather'][0]['main'])
+# print(data.json()['weather'][0]['main'])
+
+#punya si alvin
+import requests
+
+bank = input('Masukkan kode bank yang akan menjadi acuan : ').lower()
+url = 'https://kurs.web.id/api/v1/' + bank
+data = requests.get(url)
+data = data.json()
+
+print('Selamat datang')
+print('Silahkan pilih konversi yang akan Anda lakukan :')
+print(' (1) IDR indonesia => USD United States')
+print(' (2) USD United States => IDR Indonesia')
+print(' (3) IDR indonesia => Bitcoin')
+print(' (4) USD United States => Bitcoin')
+
+pil = input('Pilihan Anda (1/2/3/4) : ')
+
+if pil == '1':
+    uang = int(input('Masukkan jumlah Rupiah : Rp. '))
+    hasil = uang / int(data['jual'])
+    print(f"Rp.{uang} sama dengan US$.{hasil}")
+elif pil == '2':
+    uang = int(input('Masukkan jumlah Dollar : US$. '))
+    hasil = uang * int(data['jual'])
+    print(f"US$.{uang} sama dengan Rp.{hasil}")
+elif pil == '3':
+    uang = int(input('Masukkan jumlah Rupiah : Rp. '))
+    uang2 = str(uang / int(data['jual']))
+    hasil = requests.get(
+        'https://blockchain.info/tobtc?currency=USD&value=' + uang2)
+    print(f"Hasil konversi Rp. {uang} adalah BTC {hasil.json()}")
+elif pil == '4':
+    uang = input('Masukkan jumlah Dollar : US$. ')
+    hasil = requests.get(
+        'https://blockchain.info/tobtc?currency=USD&value=' + uang)
+    print(f"Hasil konversi US$. {uang} adalah BTC {hasil.json()}")
+else:
+    print('YANG BENER AJA LAH, PILIHAN CUMA 1 - 4')
+
+# print('%.4f' % (1324343032.324325235))

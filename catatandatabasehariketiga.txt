@@ -1,0 +1,7 @@
+hubungkan DB dengan python
+
+select o.id, o.nama, k.id as id_kota, k.nama as nama_kota from
+orangx o, kotax k, orangkotax
+where o.id = orangkotax.id_orang and k.id = orangkotax.id_kota;
+
+insert into orangx (nama) values ('Hadi');

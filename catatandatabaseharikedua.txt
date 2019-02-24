@@ -1,0 +1,166 @@
+set-location "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+./mysql.exe -u raka -p
+
+describe users;
+
+ Field      | Type                  | Null | Key | Default           | Extra                                         |
++------------+-----------------------+------+-----+-------------------+-----------------------------------------------+
+| id         | int(11)               | NO   | PRI | NULL              | auto_increment                                |
+| nama       | varchar(50)           | YES  |     | Tanpa Nama        |                                               |
+| email      | varchar(50)           | NO   | UNI | NULL              |                                               |
+| city       | varchar(55)           | YES  |     | Surabaya          |                                               |
+| gender     | enum('Pria','Wanita') | YES  |     | NULL              |                                               |
+| usia       | int(11)               | YES  |     | NULL              |                                               |
+| created_at | timestamp             | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at | timestamp             | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+insert into users (usia, gender, city, email, nama) values
+    -> (18, 'Pria', 'Bogor', 'doffy@doffy.com', 'doffy')
+    -> ;
+
+select * from users
+    -> where usia between 22 and 34
+    -> and city ='jakarta';
+
+select * from users
+    -> where usia > 30
+    -> and city = 'Jakarta'
+    -> ;
+
+select * from users
+    -> where nama like '%i';
+
+alter table users
+    -> rename column
+    -> city to kota;
+
+select * from users
+where nama not like '%di';
+
+select count(*) as jumlah from users where kota = 'Jakarta';
+
+select kota, count(*) as jumlah from users
+group by kota;
+
+select min(usia) as termuda from users; #cari termuda
+
+select min(usia) as termuda, max(usia) as tertua from users;
+
+select * from users where
+    -> usia = (
+    -> select min(usia) from users
+    -> );
+
+select sum(usia) as totalUsia from users;
+
+select sum(usia) as totalUsia from users where kota = 'Jakarta';
+
+select avg(usia) as rataUsia from users;
+
+select round(avg(usia)) as rataUsia from users;
+
+select * from users
+
+select * from users
+    -> where usia >
+    -> (select round (avg(usia)) as rataUsia from users
+    -> );
+
+select kota, count(*) as jumlahUser, avg(usia) as rataUsia from users
+    -> group by kota;
+
+select kota, count(*) as jumlahUser, avg(usia) as rataUsia from users
+    -> group by kota
+    -> having rataUsia < 30;
+
+select kota, count(*) as jumlahUser, avg(usia) as rataUsia from users
+    -> group by kota
+    -> having jumlahUser > 1;
+
+select kota, count(*) as jumlahUser, avg(usia) as rataUsia from users
+    -> group by kota
+    -> having rataUsia between 20 and 30;
+
+Buat tabel
+
+create table orangX (
+    -> id int not null auto_increment,
+    -> nama varchar(50) default 'Anonim',
+    -> id_kota int not null,
+-> primary key (id));
+
+describe orangX;
+
+create table kotaX(
+    -> id int not null auto_increment,
+    -> nama varchar(50) not null,
+    -> primary key(id));
+
+insert into kotax (nama) values
+    -> ('Jakarta'),
+    -> ('Yogyakarta'),
+    -> ('Bandung'),
+    -> ('Denpasar'),
+    -> ('Sorong');
+
+    
+SQL JOINS
+
+INNER JOIN PALING BANYAK DIPAKAI
+
+select orangx.nama, kotax.nama as kota from
+orangx inner join kotax
+on orangx.id_kota = kotax.id;
+
+LEFT RIGHT JOIN
+select orangx.nama, kotax.nama from
+    -> orangx, kotax
+    -> where orangx.id_kota = kotax.id;
++------+------------+
+| nama | nama       |
++------+------------+
+| Andi | Jakarta    |
+| Budi | Yogyakarta |
+| Caca | Jakarta    |
+| Deni | Bandung    |
+| Euis | Yogyakarta |
++------+------------+
+
+select orangx.nama, kotax.nama from
+    -> orangx, kotax, orangkotax
+    -> where kotax.id = orangkotax.id_kota
+    -> and
+    -> orangx.id = orangkotax.id_orang;
++------+------------+
+| nama | nama       |
++------+------------+
+| Andi | Jakarta    |
+| Budi | Yogyakarta |
+| Caca | Jakarta    |
+| Deni | Yogyakarta |
+| Euis | Bandung    |
++------+------------+
+
+select o.nama, k.nama as kota from
+    -> orangx o, kotax k, orangkotax z
+    -> where k.id = z.id_kota
+    -> and
+    -> o.id = z.id_orang;
+
+view
+
+create view datapenting as
+    -> select o.nama, k.nama as kota from
+    -> orangx o, kotax k, orangkotax z
+    -> where k.id = z.id_kota
+    -> and
+    -> o.id = z.id_orang;
+Query OK, 0 rows affected (0.16 sec)
+
+untuk coba show tables;
+
+cara bedainnya 
+show full tables;
+
+view gabisa ditambah insert into
